@@ -9,7 +9,7 @@ app = Flask(__name__)
 PWconfig = os.environ.get('PWMongoDB')
 
 app.config["MONGO_DBNAME"] = 'myRecipeDB'
-app.config["MONGO_URI"] = 'mongodb+srv://root:' + PWconfig + '@recipys-giedu.mongodb.net/admin?retryWrites=true&w=majority'
+app.config["MONGO_URI"] = 'mongodb+srv://root:' + str(PWconfig) + '@recipys-giedu.mongodb.net/admin?retryWrites=true&w=majority'
 
 mongo = PyMongo(app)
 
