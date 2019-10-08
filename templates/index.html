@@ -15,5 +15,13 @@
         {{user.dob}}
     {% endfor%}
 
+    {% for recipy in recipys %}
+        {{recipy.title}} 
+        {{recipy.description}} 
+        {{recipy.ingredients}} 
+        {{recipy.instructions}} 
+        {{recipy.tags}}
+        {{recipy.imageLink}}
+    {% endfor%}
 </body>
 </html>

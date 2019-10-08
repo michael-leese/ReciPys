@@ -13,11 +13,18 @@ app.config["MONGO_URI"] = 'mongodb+srv://root:%s@recipys-giedu.mongodb.net/myRec
 
 mongo = PyMongo(app)
 
-#Setup simple message to show server setup is working
 @app.route('/')
+
+#retrieve user
 @app.route('/get_users')
 def get_users():
     return render_template("index.html", users=mongo.db.users.find())
+
+#retrieve recipy
+@app.route('/get_recipys')
+def get_users():
+    return render_template("index.html", recipys=mongo.db.recipes.find())
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
