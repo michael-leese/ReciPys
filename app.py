@@ -7,18 +7,14 @@ from flask_pymongo import PyMongo
 app = Flask(__name__)
 
 PWconfig = os.environ.get('PWMONGODB')
-PWConnectionStr = 'mongodb+srv://root:%s@recipys-giedu.mongodb.net/myRecipeDB?retryWrites=true&w=majority' % (PWconfig)
-print(PWconfig)
-print(PWConnectionStr)
 app.config["MONGO_DBNAME"] = 'myRecipeDB'
-app.config["MONGO_URI"] = PWConnectionStr
-
+app.config["MONGO_URI"] = 'mongodb+srv://root:%s@recipys-giedu.mongodb.net/myRecipeDB?retryWrites=true&w=majority' % (PWconfig)
 
 mongo = PyMongo(app)
 
 #Setup simple message to show server setup is working
 @app.route('/')
-@app.route('/get_tasks')
+@app.route('/get_users')
 def get_users():
     return render_template("index.html", users=mongo.db.users.find())
 
