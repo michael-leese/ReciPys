@@ -22,7 +22,7 @@ def get_users():
 
 #retrieve recipy
 @app.route('/get_recipys')
-def get_users():
+def get_recipys():
     return render_template("index.html", recipys=mongo.db.recipes.find())
 
 
