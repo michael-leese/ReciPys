@@ -7,23 +7,22 @@
     <title>RecipYs</title>
 </head>
 <body>
-
-    {% for user in users %}
+<p>{% for user in users %}
         {{user.username}} 
         {{user.firstName}} 
         {{user.lastName}} 
         {{user.email}} 
         {{user.dob}}
-    {% endfor%}
+    {% endfor%}</p>
 
-    {% for recipe in recipes %}
+ <p>{% for recipe in recipys %}
         {{recipe.title}} 
         {{recipe.description}} 
         {{recipe.ingredients}} 
         {{recipe.instructions}} 
         {{recipe.tags}}
         {{recipe.imageLink}}
-    {% endfor%}
+    {% endfor%}</p>
 
 </body>
 </html>
