@@ -6,7 +6,7 @@ from flask_pymongo import PyMongo
 
 app = Flask(__name__)
 
-PWconfig = os.environ
+PWconfig = os.environ.get('PWMONGODB')
 PWConnectionStr = 'mongodb+srv://root:%s@recipys-giedu.mongodb.net/myRecipeDB?retryWrites=true&w=majority' % (PWconfig)
 print(PWconfig)
 print(PWConnectionStr)
