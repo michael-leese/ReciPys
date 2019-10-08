@@ -18,8 +18,7 @@ mongo = PyMongo(app)
 #retrieve user
 @app.route('/get_users')
 def get_users():
-     render_template("index.html", users=mongo.db.users.find())
-     get_recipys()
+     return render_template("index.html", users=mongo.db.users.find())
 
 #retrieve recipy
 @app.route('/get_recipys')
