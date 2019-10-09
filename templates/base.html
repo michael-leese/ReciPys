@@ -14,15 +14,8 @@
         {{user.email}} 
         {{user.dob}}
     {% endfor%}</p>
+{% block recipeContent%}
 
- <p>{% for recipe in recipes %}
-        {{recipe.title}} 
-        {{recipe.description}} 
-        {{recipe.ingredients}} 
-        {{recipe.instructions}} 
-        {{recipe.tags}}
-        {{recipe.imageLink}}
-    {% endfor%}</p>
-
+{% endblock %}
 </body>
 </html>
