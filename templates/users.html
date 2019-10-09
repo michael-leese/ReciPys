@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block userContent %}
+   {% for user in users %}
+        {{user.username}} 
+        {{user.firstName}} 
+        {{user.lastName}} 
+        {{user.email}} 
+        {{user.dob}}
+    {% endfor %}
+{% endblock %}

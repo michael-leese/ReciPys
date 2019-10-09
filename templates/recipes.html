@@ -1,12 +1,12 @@
 
 {% extends 'base.html' %}
 {% block recipeContent %}
-<p>{% for recipe in recipes %}
+   {% for recipe in recipes %}
         {{recipe.title}} 
         {{recipe.description}} 
         {{recipe.ingredients}} 
         {{recipe.instructions}} 
         {{recipe.tags}}
         {{recipe.imageLink}}
-    {% endfor%}</p>
+    {% endfor %}
 {% endblock %}
