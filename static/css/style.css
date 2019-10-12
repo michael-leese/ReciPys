@@ -12,9 +12,20 @@ body {
   .brand-text{
     margin: 0;
     font-family: 'Mansalva', sans-serif;
+    color: #ffffff;
   }
+
+  .brand-backdrop{
+    background-image: url("../images/backgroundimage.jpg");
+    background-size: cover;
+  }
+
+  .index-message{
+    display: block;
+    margin-left: 50px;
+  }
+
 
   .page-footer{
     justify-content:  center;
-    color: #ffffff;
   }
