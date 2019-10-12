@@ -15,6 +15,14 @@ body {
     color: #ffffff;
   }
 
+  .recipe-font{
+    color: #242f34;
+  }
+
+  .btn-font-size{
+    font-size: 0.8em;
+  }
+
   .brand-backdrop{
     background-image: url("../images/backgroundimage.jpg");
     background-size: cover;
@@ -22,9 +30,26 @@ body {
 
   .index-message{
     display: block;
-    margin-left: 50px;
   }
 
+  .top-offset{
+    margin-top: 25px;
+  }
+
+  .top-offset-sm{
+    margin-top: 15px;
+  }
+
+  .search-field{
+    width: 40%;
+  }
+
+  .card { 
+    background-color: #ffffff82; 
+    background-clip: border-box;
+    border: 1px solid #ffffff82;
+    border-radius: .25rem;
+  }
 
   .page-footer{
     justify-content:  center;

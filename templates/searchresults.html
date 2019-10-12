@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="brand-text top-offset">Results for: <em>{{ query }}</em>.</h2>
+    <div class="row text-center top-offset-sm">
+    {% for recipe in results %}
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="{{ recipe.imageLink }}" alt="picture of {{ recipe.title }} served">
+            <div class="card-body">
+              <h4 class="card-title recipe-font">{{ recipe.title }}</h4>
+              <p class="card-text recipe-font">{{ recipe.prelog }}</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-info brand-text btn-font-size">VIEW</a>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+    </div>
+{%  endblock %}
