@@ -18,18 +18,18 @@ mongo = PyMongo(app)
 #retrieve home page
 @app.route('/index')
 def index():
-    return render_template("index.html")
+    return render_template("index.html", title="Home")
 
 #retrieve user page
 @app.route('/users')
 def users():
     print(Config.PWconfig)
-    return render_template("users.html", users=mongo.db.users.find())
+    return render_template("users.html", users=mongo.db.users.find(), title="Users")
 
 #retrieve recipy page
 @app.route('/recipys')
 def recipys():
-    return render_template("recipes.html", recipes=mongo.db.recipes.find())
+    return render_template("recipes.html", recipes=mongo.db.recipes.find(), title="Recipes")
 
 
 if __name__ == '__main__':
