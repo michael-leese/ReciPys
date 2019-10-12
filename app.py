@@ -14,10 +14,6 @@ app.config["MONGO_URI"] = 'mongodb+srv://root:%s@recipys-giedu.mongodb.net/myRec
 mongo = PyMongo(app)
 
 @app.route('/')
-#retrieve user
-@app.route('/get_users')
-def get_users():
-     return render_template("users.html", users=mongo.db.users.find())
 
 #retrieve recipy
 @app.route('/get_recipys')
