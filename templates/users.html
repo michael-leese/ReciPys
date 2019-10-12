@@ -1,18 +1,10 @@
 {% extends 'base.html' %}
-{% block stuff %}
+{% block content %}
    {% for user in users %}
      <p>  {{user.username}} 
         {{user.firstName}} 
         {{user.lastName}} 
         {{user.email}} 
         {{user.dob}}</p> 
-    {% endfor %}
-    {% for recipe in recipes %}
-     <p>  {{recipe.title}} 
-        {{recipe.description}} 
-        {{recipe.ingredients}} 
-        {{recipe.instructions}} 
-        {{recipe.tags}}
-        {{recipe.imageLink}}</p> 
     {% endfor %}
 {% endblock %}
