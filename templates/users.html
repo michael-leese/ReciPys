@@ -7,4 +7,12 @@
         {{user.email}} 
         {{user.dob}}</p> 
     {% endfor %}
+    {% for recipe in recipes %}
+     <p>  {{recipe.title}} 
+        {{recipe.description}} 
+        {{recipe.ingredients}} 
+        {{recipe.instructions}} 
+        {{recipe.tags}}
+        {{recipe.imageLink}}</p> 
+    {% endfor %}
 {% endblock %}
