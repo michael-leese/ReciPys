@@ -14,15 +14,21 @@ app.config["MONGO_URI"] = Config.PWconfig
 mongo = PyMongo(app)
 
 @app.route('/')
-#retrieve user
-@app.route('/get_users')
-def get_users():
+
+#retrieve home page
+@app.route('/index')
+def index():
+    return render_template("index.html")
+
+#retrieve user page
+@app.route('/users')
+def users():
     print(Config.PWconfig)
     return render_template("users.html", users=mongo.db.users.find())
 
-#retrieve recipy
-@app.route('/get_recipys')
-def get_recipys():
+#retrieve recipy page
+@app.route('/recipys')
+def recipys():
     return render_template("recipes.html", recipes=mongo.db.recipes.find())
 
 

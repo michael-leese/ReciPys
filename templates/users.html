@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block nav_users %}active{% endblock %}
 {% block content %}
    {% for user in users %}
      <p>  {{user.username}} 
