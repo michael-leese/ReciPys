@@ -70,6 +70,20 @@
     background-clip: border-box;
     border: 1px solid #ffffff82;
     border-radius: .25rem;
+    height: 100%;
+  }
+
+  .card-title {
+    margin-bottom: 0;
+  }
+
+  .card-body {
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .card-footer {
+    padding: 0.25rem;
   }
 
   .page-footer {

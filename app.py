@@ -24,8 +24,8 @@ def index():
     return render_template("index.html", title="Home")
 
 #retrieve user page
-@app.route('/users')
-def users():
+@app.route('/my_recipys')
+def my_recipys():
     return render_template("users.html", users=mongo.db.users.find(), title="Users")
 
 #retrieve recipy page
@@ -34,8 +34,8 @@ def recipys():
     return render_template("recipes.html", recipes=mongo.db.recipes.find(), title="Recipes")
 
 #add recipy page
-@app.route('/add_recipe', methods=['GET', 'POST'])
-def add_recipe():
+@app.route('/add_recipy', methods=['GET', 'POST'])
+def add_recipy():
     form = Add_Recipe(request.form, csrf_enabled=False)
     if form.validate_on_submit():
         # set the collection

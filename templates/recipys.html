@@ -1,14 +1,14 @@
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
+{% block nav_recipys %}active{% endblock %}
 {% block content %}
-    <h2 class="brand-text top-offset">Results for: <em>{{ query }}</em>.</h2>
+ <h2 class="brand-text top-offset">Welcome to our Larder...</h2>
     <div class="row text-center top-offset-sm">
-    {% for recipe in results %}
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-2 ">
-          <div class="card card-style h-80">
+    {% for recipe in recipes %}
+        <div class="col-lg-3 col-md-4 col-sm-12 mb-4">
+          <div class="card card-style">
             <img class="card-img-top" src="{{ recipe.imageLink }}" alt="picture of {{ recipe.title }} served">
             <div class="card-body">
-              <h4 class="card-title recipe-text">{{ recipe.title }}</h4>
+              <h3 class="card-title recipe-text">{{ recipe.title }}</h3>
               <p class="card-text recipe-text">{{ recipe.description }}</p>
               <p class="card-text creator-name-font">Created by {{ recipe.creator }}</p>
             </div>
@@ -19,4 +19,4 @@
         </div>
     {% endfor %}
     </div>
-{%  endblock %}
+{% endblock %}
