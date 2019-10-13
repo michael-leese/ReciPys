@@ -1,0 +1,46 @@
+  body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+      overflow-x: hidden;
+  }
+
+  main {
+      flex: 1 0 auto;
+  }
+
+  .navbar {
+      padding: 0 0.5rem 0 0.5rem;
+  }
+
+  .top-offset {
+      margin-top: 20px;
+  }
+
+  .top-offset-sm {
+      margin-top: 10px;
+  }
+
+  .top-offset-xs {
+      margin-top: 5px;
+  }
+
+  .bottom-offset {
+      margin-top: 20px;
+  }
+
+  .bottom-offset-sm {
+      margin-bottom: 10px;
+  }
+
+  .bottom-offset-xs {
+      margin-bottom: 5px;
+  }
+
+  .strong {
+      font-weight: 700;
+  }
+
+  .btn-font-size {
+      font-size: 0.8em;
+  }

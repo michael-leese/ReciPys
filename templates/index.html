@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 {% block nav_index %}active{% endblock %}
 {% block content %}
-<div class="row index-message top-offset">
+<div class="row index-message top-offset-sm">
     <h1 class="brand-text">Welcome to Recipys</h1>
     <p class="brand-text">Different day, different meal!</p>
-    <br />
-    <div>
+    <div class="top-offset-sm">
         <form class="input-group search-field" action="{{ url_for('search_recipes') }}">
             <input class="form-control" type="text" name="chosenWord" />
             <div class="input-group-append">
@@ -14,14 +13,21 @@
         </form>
     </div>
 </div>
+<div class="row">
+    <p class="brand-text top-offset-sm">ReciPys is the place where you can store all your favourite meals.<br />
+                          Search through our full ReciPy's collection for inspiration,<br />
+                          Or simply look through your own Recipy's for that favourite dish.
+    </p>
+</div>
 <div class="row text-center">
     {% for recipe in recipys %}
     <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
+        <div class="card card-style">
             <img class="card-img-top" src="{{ recipe.imageLink }}" alt="picture of {{ recipe.title }} served">
             <div class="card-body">
                 <h4 class="card-title">{{ recipe.title }}</h4>
-                <p class="card-text">{{ recipe.short_description }}</p>
+                <p class="card-text">{{ recipe.description }}</p>
+                <p class="card-text creator-name-font">Created by {{ recipe.creator }}</p>
             </div>
             <div class="card-footer">
                 <a href="#" class="btn btn-success brand-text btn-font-size">VIEW</a>

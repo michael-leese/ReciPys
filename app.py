@@ -5,8 +5,10 @@ from webconfig import MongoDBConfig
 from flask import Flask, render_template, redirect, request, url_for
 from bson.objectid import ObjectId
 from flask_pymongo import PyMongo
+from forms import Add_Recipe
 
 app = Flask(__name__)
+
 Config = MongoDBConfig()
 #setup Mongo
 app.config["MONGO_DBNAME"] = 'myRecipeDB'
@@ -31,6 +33,27 @@ def users():
 def recipys():
     return render_template("recipes.html", recipes=mongo.db.recipes.find(), title="Recipes")
 
+#add recipy page
+@app.route('/add_recipe', methods=['GET', 'POST'])
+def add_recipe():
+    form = Add_Recipe(request.form, csrf_enabled=False)
+    if form.validate_on_submit():
+        # set the collection
+        recipes_db = mongo.db.recipes
+        # insert the new recipe
+        recipes_db.insert_one({
+            'creator': request.form['creator'],
+            'title': request.form['title'],
+            'description': request.form['description'],
+            'ingredients': request.form['ingredients'],
+            'instructions': request.form['instructions'],
+            'tags': request.form['tags'],
+            'imageLink': request.form['imageLink']
+            })
+        return redirect(url_for('index', title='SAVED!'))
+    return render_template('add_recipe.html', form=form, title='Add ReciPy')
+
+#search for recipes from home screen
 @app.route('/search_recipes')
 def search_recipes():
     #get value from the search box
@@ -45,7 +68,7 @@ def search_recipes():
             {'ingredients': searchInput},
         ]
     })
-    return render_template('searchresults.html', query=chosenRecipe, results=results)
+    return render_template('searchresults.html', query=chosenRecipe, results=results, title="Results")
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

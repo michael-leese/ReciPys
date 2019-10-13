@@ -1,56 +1,77 @@
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    overflow: hidden;
+  .brand-font {
+    font-family: 'Mansalva', sans-serif;
   }
 
-  main {
-    flex: 1 0 auto;
-  }
-
-  .brand-text{
+  .brand-text {
     margin: 0;
     font-family: 'Mansalva', sans-serif;
     color: #ffffff;
   }
 
-  .recipe-font{
+  .recipe-text {
     color: #242f34;
   }
 
-  .btn-font-size{
-    font-size: 0.8em;
+  .creator-name-font {
+    font-size: 0.7em;
   }
 
-  .brand-backdrop{
+  .grouping-div-form {
+    display: flex;
+  }
+
+  .textarea-form {
+    width: 100%;
+  }
+
+  input::placeholder {
+    color: #242f34be;
+    font-size: 0.8em;
+    font-style: italic;
+  }
+
+  textarea::placeholder {
+    color: #242f34be;
+    font-size: 0.8em;
+    font-style: italic;
+  }
+
+  #add-recipy-btn {
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-family: 'Mansalva', sans-serif;
+    color: #ffffff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    line-height: 1.5;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .brand-backdrop {
     background-image: url("../images/backgroundimage.jpg");
     background-size: cover;
   }
 
-  .index-message{
+  .index-message {
     display: block;
   }
 
-  .top-offset{
-    margin-top: 25px;
-  }
-
-  .top-offset-sm{
-    margin-top: 15px;
-  }
-
-  .search-field{
+  .search-field {
     width: 40%;
   }
 
-  .card { 
-    background-color: #ffffff82; 
+  .card-style {
+    background-color: #ffffff82;
     background-clip: border-box;
     border: 1px solid #ffffff82;
     border-radius: .25rem;
   }
 
-  .page-footer{
-    justify-content:  center;
+  .page-footer {
+    justify-content: center;
   }
