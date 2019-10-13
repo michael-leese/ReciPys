@@ -18,16 +18,15 @@ mongo = PyMongo(app)
 
 @app.route('/')
 
-#retrieve home page and return top 4 viewed recipes
+#retrieve home page
 @app.route('/index')
 def index():
-    most_viewed = mongo.db.recipes.find().sort([('views', -1)]).limit(4)
-    return render_template("index.html", title="Home", recipes=most_viewed)
+    return render_template("index.html", title="Home")
 
 #retrieve user page
 @app.route('/my_recipys')
 def my_recipys():
-    return render_template("myrecipys.html", users=mongo.db.users.find(), title="User")
+    return render_template("myrecipys.html", users=mongo.db.recipes.find(), title="User")
 
 #retrieve recipy page
 @app.route('/recipys')
@@ -49,15 +48,14 @@ def add_recipy():
             'ingredients': request.form['ingredients'],
             'instructions': request.form['instructions'],
             'tags': request.form['tags'],
-            'imageLink': request.form['imageLink'],
-            'views': '1'
+            'imageLink': request.form['imageLink']
             })
         return redirect(url_for('index', title='SAVED!'))
     return render_template('add_recipe.html', form=form, title='Add ReciPy')
 
-#edit a recipe
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
+    """Allows logged in user to edit their own recipes"""
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
     if request.method == 'GET':
         form = EditRecipeForm(data=recipe_db)
@@ -70,15 +68,15 @@ def edit_recipe(recipe_id):
         }, {
             '$set': {
                 'creator': request.form['creator'],
-                'title': request.form['title'],
-                'description': request.form['description'],
-                'ingredients': request.form['ingredients'],
-                'instructions': request.form['instructions'],
-                'tags': request.form['tags'],
-                'imageLink': request.form['imageLink']
+            'title': request.form['title'],
+            'description': request.form['description'],
+            'ingredients': request.form['ingredients'],
+            'instructions': request.form['instructions'],
+            'tags': request.form['tags'],
+            'imageLink': request.form['imageLink']
             }
         })
-        return redirect(url_for('index', title='SAVED!'))
+        return redirect(url_for('index', title='New Recipe Added'))
     return render_template('edit_recipe.html', recipe=recipe_db, form=form)
 
 #search for recipes from home screen

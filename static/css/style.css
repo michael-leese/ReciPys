@@ -57,11 +57,18 @@
     background-size: cover;
   }
 
+  .index-header{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
   .index-message {
     display: block;
   }
 
   .search-field {
+    height: fit-content;
     width: 40%;
   }
 

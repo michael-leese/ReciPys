@@ -1,40 +1,42 @@
 {% extends 'base.html' %}
 {% block nav_index %}active{% endblock %}
 {% block content %}
-<div class="row index-message top-offset-sm">
-    <h1 class="brand-text">Welcome to Recipys</h1>
-    <p class="brand-text">Different day, different meal!</p>
-    <div class="top-offset-sm">
-        <form class="input-group search-field" action="{{ url_for('search_recipes') }}">
-            <input class="form-control" type="text" name="chosenWord" />
-            <div class="input-group-append">
-                <button class="btn btn-info brand-text" type="submit">Search ReciPys</button>
-            </div>
-        </form>
+<div class="index-header top-offset-sm">
+    <div class="index-message">
+        <h1 class="brand-text">Welcome to Recipys</h1>
+        <p class="brand-text">Different day, different meal!</p>
     </div>
+    <div class="w-33"></div>
+    <form class="input-group search-field" action="{{ url_for('search_recipes') }}">
+        <input class="form-control" type="text" name="chosenWord" />
+        <div class="input-group-append">
+            <button class="btn btn-info brand-text" type="submit">Search ReciPys</button>
+        </div>
+    </form>
 </div>
-<div class="row">
+<div>
     <p class="brand-text top-offset-sm">ReciPys is the place where you can store all your favourite meals.<br />
-                          Search through our full ReciPy's collection for inspiration,<br />
-                          Or simply look through your own Recipy's for that favourite dish.
+        Search through our full ReciPy's collection for inspiration,<br />
+        Or simply look through your own Recipy's for that favourite dish.
     </p>
 </div>
-<div class="row text-center">
-    {% for recipe in recipys %}
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card card-style">
-            <img class="card-img-top" src="{{ recipe.imageLink }}" alt="picture of {{ recipe.title }} served">
-            <div class="card-body">
-                <h4 class="card-title">{{ recipe.title }}</h4>
-                <p class="card-text">{{ recipe.description }}</p>
-                <p class="card-text creator-name-font">Created by {{ recipe.creator }}</p>
+<h6 class="brand-text top-offset-sm"><strong>Our Top 4 ReciPys...</strong></h6>
+<div class="row text-center top-offset-sm">
+        {% for recipe in recipes %}
+            <div class="col-lg-3 col-md-4 col-sm-12 mb-2">
+              <div class="card card-style">
+                <img class="card-img-top" src="{{ recipe.imageLink }}" alt="picture of {{ recipe.title }} served">
+                <div class="card-body">
+                  <h3 class="card-title recipe-text">{{ recipe.title }}</h3>
+                  <p class="card-text recipe-text">{{ recipe.description }}</p>
+                  <p class="card-text creator-name-font">Created by {{ recipe.creator }}</p>
+                </div>
+                <div class="card-footer">
+                  <a href="#" class="btn btn-info brand-text btn-font-size">VIEW</a>
+                </div>
+              </div>
             </div>
-            <div class="card-footer">
-                <a href="#" class="btn btn-success brand-text btn-font-size">VIEW</a>
-            </div>
+        {% endfor %}
         </div>
-    </div>
-    {% endfor %}
-</div>
 
 {% endblock %}
