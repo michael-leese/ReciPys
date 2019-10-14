@@ -10,7 +10,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">   
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="../static/css/style.css" rel="stylesheet">
     <link href="../static/css/helper_classes.css" rel="stylesheet">
   </head>
@@ -31,6 +31,8 @@
           <ul class="navbar-nav ml-auto flex-nowrap">
             <li class="nav-item {% block nav_index %}{% endblock %}"><a class="nav-link brand-font"
                 href="{{ url_for('index') }}">Home</a></li>
+            <li class="nav-item {% block nav_register %}{% endblock %}"><a class="nav-link brand-font"
+                href="{{ url_for('register') }}">Register</a></li>
             <li class="nav-item {% block nav_recipys %}{% endblock %}"><a class="nav-link brand-font"
                 href="{{ url_for('recipys') }}">ReciPys</a></li>
             <li class="nav-item {% block nav_myrecipys %}{% endblock %}"><a class="nav-link brand-font"

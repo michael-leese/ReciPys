@@ -12,6 +12,12 @@
     color: #242f34;
   }
 
+  .warning-text{
+    font-size: 0.7em;
+    color: #ff0000;
+    font-style: italic;
+  }
+
   .creator-name-font {
     font-size: 0.7em;
   }
@@ -36,7 +42,7 @@
     font-style: italic;
   }
 
-  #add-recipy-btn {
+  #recipy-btn {
     border: 1px solid transparent;
     padding: .375rem .75rem;
     font-family: 'Mansalva', sans-serif;

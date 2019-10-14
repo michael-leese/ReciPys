@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
     //add recipy form
-    $(".add-form-input > input").addClass("textarea-form");
-    $("p > textarea").addClass("textarea-form");
-    $("p > label").addClass("strong");
+    $(".add-form > input").addClass("textarea-form");
+    $(".add-form > textarea").addClass("textarea-form");
+    $(".add-form > label").addClass("strong");
     $("#creator").attr("placeholder", "Your Username...");
     $("#title").attr("placeholder", "ReciPy Title...");
     $("#description").attr("placeholder", "Enter a short description here...");
@@ -13,5 +13,15 @@ $(document).ready(function(){
     $("#tags").attr("placeholder", "Keywords, must be split with commas...");
     $("#imageLink").attr("placeholder", "E.g https://myimage.com/lasagna.jpg");
 
+    //registration form
+    $(".reg-form > input").addClass("textarea-form");
+    $(".reg-form > label").addClass("strong");
+    $("#username").attr("placeholder", "Choose a Username...");
+    $("#password").attr("placeholder", "Choose a Password...");
+    $("#password2").attr("placeholder", "Confirm Password...");
+    $("#firstname").attr("placeholder", "Enter first name...");
+    $("#lastname").attr("placeholder", "Enter last name...");
+    $("#dob").attr("placeholder", "Enter dd/mm/yyyy...");
+    $("#email").attr("placeholder", "Enter your email...");
 
 });

@@ -7,61 +7,61 @@
     <form class="card-style col-12" action="" method="post" enctype="multipart/form-data">
         {{ form.csrf_token }}
         <div class="col-12 grouping-div-form">
-            <p class="recipe-text col-5 add-form-input">
+            <p class="recipe-text col-5 add-form">
                 {{ form.creator.label }}<br>
                 {{ form.creator }}<br>
                 {%  for error in form.creator.errors %}
-                <span class="warning">{{ error }}</span>
+                <span class="warning-text">{{ error }}</span>
                 {% endfor %}
             </p>
-            <p class="recipe-text offset-2 col-5 add-form-input">
+            <p class="recipe-text offset-2 col-5 add-form">
                 {{ form.title.label }}<br>
                 {{ form.title }}<br>
                 {%  for error in form.title.errors %}
-                <span class="warning">{{ error }}</span>
+                <span class="warning-text">{{ error }}</span>
                 {% endfor %}
             </p>
         </div>
-        <p class="recipe-text">
+        <p class="recipe-text add-form">
             {{ form.description.label }}<br>
             {{ form.description(rows="3") }}<br>
             {%  for error in form.description.errors %}
-            <span class="warning">{{ error }}</span>
+            <span class="warning-text">{{ error }}</span>
             {% endfor %}
         </p>
         <div class="row">
             <div class="col-4">
-                <p class="recipe-text">
+                <p class="recipe-text add-form">
                     {{ form.ingredients.label }}<br>
                     {{ form.ingredients(rows="16") }}
                     {%  for error in form.ingredients.errors %}
-                    <span class="warning">{{ error }}</span>
+                    <span class="warning-text">{{ error }}</span>
                     {% endfor %}
                 </p>
             </div>
             <div class="col-8">
-                <p class="recipe-text">
+                <p class="recipe-text add-form">
                     {{ form.instructions.label }}<br>
                     {{ form.instructions(rows="16") }}
                     {%  for error in form.instructions.errors %}
-                    <span class="warning">{{ error }}</span>
+                    <span class="warning-text">{{ error }}</span>
                     {% endfor %}
                 </p>
             </div>
         </div>
         <div class="col-12">
-            <p class="recipe-text add-form-input">
+            <p class="recipe-text add-form">
                 {{ form.tags.label }}<br>
                 {{ form.tags }}<br>
                 {%  for error in form.tags.errors %}
-                <span class="warning">{{ error }}</span>
+                <span class="warning-text">{{ error }}</span>
                 {% endfor %}
             </p>
-            <p class="recipe-text add-form-input">
+            <p class="recipe-text add-form">
                 {{ form.imageLink.label }}<br>
                 {{ form.imageLink }}<br>
                 {%  for error in form.imageLink.errors %}
-                <span class="warning">{{ error }}</span>
+                <span class="warning-text">{{ error }}</span>
                 {% endfor %}
             </p>
         </div>
