@@ -33,6 +33,9 @@ def register():
         # get all the users
         users = mongo.db.users
         # see if we already have the entered username
+        user_name = request.form['username']
+    #using regular expression setting option for any case
+        user_check = {'$regex': re.compile('\W*({})\W*'.format(user_name)), '$options': 'i'}
         user_check = users.find_one({'username': request.form['username']})
         if user_check is None:
             # hash the entered password
@@ -46,13 +49,14 @@ def register():
                           'email': request.form['email'],
                           'dob': request.form['dob']})
             return redirect(url_for('index'))
-        return render_template("register.html")
+        error_message = "That Username is already taken. Please try again."
+        return render_template("error.html", title="ERROR", error=error_message, last_page='../register')
     return render_template("register.html", form=form, title="Register")
 
 #retrieve user page
 @app.route('/my_recipys')
 def my_recipys():
-    return render_template("myrecipys.html", users=mongo.db.users.find(), formtitle="User")
+    return render_template("myrecipys.html", users=mongo.db.users.find(), title="User")
 
 #retrieve recipy page
 @app.route('/recipys')

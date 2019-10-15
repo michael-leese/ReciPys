@@ -107,3 +107,9 @@
   .page-footer {
     justify-content: center;
   }
+
+  .error-container{
+    justify-content: center;
+    display: flex;
+    padding: 10%;
+  }

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="text-align-center col-lg-10 col-md-5 col-sm-12">
+    <div class="card card-style">
+        <div class="card-body">
+            <h3 class="card-title warning-text">{{ error }}</h3>
+        </div>
+        <div class="card-footer">
+            <a href="{{last_page}}"
+                class="btn btn-info brand-text btn-font-size">Retry</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+        $(document).ready(function(){
+            $(".container").addClass("error-container");
+        });
+</script>
+{% endblock %}

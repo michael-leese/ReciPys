@@ -1,64 +1,72 @@
 /********************* This CSS is for overwriting some Bootstrap styles as well as picking some ofour own ********************/
-  
-  /****************************************** Main Structure ******/
 
-  body {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-      overflow-x: hidden;
-  }
+/****************************************** Main Structure ******/
 
-  main {
-      flex: 1 0 auto;
-  }
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    overflow-x: hidden;
+}
 
-  /****************************************** Margins and Padding ******/
+main {
+    flex: 1 0 auto;
+}
 
-  .navbar {
-      padding: 0 0.5rem 0 0.5rem;
-  }
+/****************************************** Margins and Padding ******/
 
-  .top-offset {
-      margin-top: 20px;
-  }
+.navbar {
+    padding: 0 0.5rem 0 0.5rem;
+}
 
-  .top-offset-sm {
-      margin-top: 10px;
-  }
+.top-offset {
+    margin-top: 20px;
+}
 
-  .top-offset-xs {
-      margin-top: 5px;
-  }
+.top-offset-sm {
+    margin-top: 10px;
+}
 
-  .bottom-offset {
-      margin-top: 20px;
-  }
+.top-offset-xs {
+    margin-top: 5px;
+}
 
-  .bottom-offset-sm {
-      margin-bottom: 10px;
-  }
+.bottom-offset {
+    margin-top: 20px;
+}
 
-  .bottom-offset-xs {
-      margin-bottom: 5px;
-  }
+.bottom-offset-sm {
+    margin-bottom: 10px;
+}
 
-  /****************************************** FONTS ******/
+.bottom-offset-xs {
+    margin-bottom: 5px;
+}
 
-  .strong {
-      font-weight: 700;
-  }
+/****************************************** FONTS ******/
 
-  .btn-font-size {
-      font-size: 0.8em;
-  }
+.strong {
+    font-weight: 700;
+}
 
-  /****************************************** Positioning ******/
+.btn-font-size {
+    font-size: 0.8em;
+}
 
-  .w-40 {
-      width: 40%;
-  }
+/****************************************** Positioning ******/
 
-  .space-around {
-      justify-content: space-around;
-  }
+.text-align-center {
+    text-align: center;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.hidden {
+    display: none;
+}
