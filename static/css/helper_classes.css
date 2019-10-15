@@ -1,3 +1,7 @@
+/********************* This CSS is for overwriting some Bootstrap styles as well as picking some ofour own ********************/
+  
+  /****************************************** Main Structure ******/
+
   body {
       display: flex;
       min-height: 100vh;
@@ -8,6 +12,8 @@
   main {
       flex: 1 0 auto;
   }
+
+  /****************************************** Margins and Padding ******/
 
   .navbar {
       padding: 0 0.5rem 0 0.5rem;
@@ -37,10 +43,22 @@
       margin-bottom: 5px;
   }
 
+  /****************************************** FONTS ******/
+
   .strong {
       font-weight: 700;
   }
 
   .btn-font-size {
       font-size: 0.8em;
+  }
+
+  /****************************************** Positioning ******/
+
+  .w-40 {
+      width: 40%;
+  }
+
+  .space-around {
+      justify-content: space-around;
   }

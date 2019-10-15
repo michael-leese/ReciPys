@@ -2,56 +2,69 @@
 {% block nav_register %}active{% endblock %}
 {% block content %}
 <div class="row text-center bottom-offset-sm align-items-end">
-    <h2 class="brand-text top-offset-xs bottom-offset-xs">Register and get cooking...</h2>
-    <p class="brand-text bottom-offset-xs">Enter details below</p>
+    <h2 class="brand-text top-offset-xs bottom-offset-xs">Register and get cooking...&nbsp</h2>
+    <p class="brand-text bottom-offset-xs"> Enter details below</p>
+</div>
+<div class="row text-center">
     <form class="card-style col-12" action="" method="post" enctype="multipart/form-data">
         {{ form.csrf_token }}
-        <p class="recipe-text reg-form">
-            {{ form.username.label }}<br>
-            {{ form.username }}<br>
-            {%  for error in form.username.errors %}
-            <span class="warning-text">{{ error }}</span>
-            {% endfor %}
-        </p>
-        <p class="recipe-text reg-form">
-            {{ form.password.label }}<br>
-            {{ form.password }}<br>
-            {%  for error in form.password.errors %}
-            <span class="warning-text">{{ error }}</span>
-            {% endfor %}
-        </p>
-        <p class="recipe-text reg-form">
-            {{ form.password2.label }}<br>
-            {{ form.password2 }}
-        </p>
-        <p class="recipe-text reg-form">
-            {{ form.firstname.label }}<br>
-            {{ form.firstname }}<br>
-            {%  for error in form.email.errors %}
-            <span class="warning-text">{{ error }}</span>
-            {% endfor %}
-        </p>
-        <p class="recipe-text reg-form">
-            {{ form.lastname.label }}<br>
-            {{ form.lastname }}<br>
-            {%  for error in form.email.errors %}
-            <span class="warning-text">{{ error }}</span>
-            {% endfor %}
-        </p>
-        <p class="recipe-text reg-form">
-            {{ form.dob.label }}<br>
-            {{ form.dob }}<br>
-            {%  for error in form.email.errors %}
-            <span class="warning-text">{{ error }}</span>
-            {% endfor %}
-        </p>
-        <p class="recipe-text reg-form">
-            {{ form.email.label }}<br>
-            {{ form.email }}<br>
-            {%  for error in form.email.errors %}
-            <span class="warning-text">{{ error }}</span>
-            {% endfor %}
-        </p>
+        <div class="row space-around">
+            <div class="recipe-text reg-form w-40">
+                <p class="form-title reg-form">{{ form.username.label }}</p>
+                <p class="recipe-text reg-form">{{ form.username }}</p>
+                {%  for error in form.username.errors %}
+                <p class="warning-text">{{ error }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row space-around">
+            <div class="recipe-text reg-form w-40">
+                <p class="form-title reg-form">{{ form.firstname.label }}</p>
+                <p class="recipe-text reg-form">{{ form.firstname }}</p>
+                {%  for error in form.firstname.errors %}
+                <p class="warning-text">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <div class="recipe-text reg-form w-40">
+                <p class="form-title reg-form">{{ form.lastname.label }}</p>
+                <p class="recipe-text reg-form">{{ form.lastname }}</p>
+                {%  for error in form.lastname.errors %}
+                <p class="warning-text">{{ error }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row space-around">
+            <div class="recipe-text reg-form w-40">
+                <p class="form-title reg-form">{{ form.dob.label }}</p>
+                <p class="recipe-text reg-form">{{ form.dob }}</p>
+                {%  for error in form.dob.errors %}
+                <p class="warning-text">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <div class="recipe-text reg-form w-40">
+                <p class="form-title reg-form">{{ form.email.label }}</p>
+                <p class="recipe-text reg-form">{{ form.email }}</p>
+                {%  for error in form.email.errors %}
+                <p class="warning-text">{{ error }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row space-around">
+            <div class="recipe-text reg-form w-40">
+                <p class="form-title reg-form">{{ form.password.label }}</p>
+                <p class="recipe-text reg-form">{{ form.password }}</p>
+                {%  for error in form.password.errors %}
+                <p class="warning-text">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <div class="recipe-text reg-form w-40">
+                <p class="form-title reg-form">{{ form.password2.label }}</p>
+                <p class="recipe-text reg-form">{{ form.password2 }}</p>
+                {%  for error in form.password2.errors %}
+                <p class="warning-text">{{ error }}</p>
+                {% endfor %}
+            </div>
+        </div>
         <div class="col-12 justify-content-center">
             <p>{{ form.submit() }}</p>
         </div>

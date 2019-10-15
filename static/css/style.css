@@ -99,6 +99,11 @@
     padding: 0.25rem;
   }
 
+  .form-title {
+    margin-bottom: 0;
+    color: #242f34;
+  }
+
   .page-footer {
     justify-content: center;
   }
