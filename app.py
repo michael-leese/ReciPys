@@ -96,6 +96,12 @@ def login():
             return render_template("error.html", title="ERROR", error=error_message, last_page='../login')
     return render_template("login.html", title="Login", form=form)
 
+#logout the user and return to home page
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
+
 #retrieve user page
 @app.route('/my_recipys')
 def my_recipys():
