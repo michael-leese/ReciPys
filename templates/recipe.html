@@ -9,8 +9,7 @@
                 <img class="card-img-top" src="{{recipe.imageLink}}" alt="picture of {{recipe.title}} served">
             </div>
         </div>
-        <p class="recipe-text bottom-offset-xs">Viewed {{recipe.views}} times.</p>
-        <p class="recipe-text bottom-offset-xs">Created by {{recipe.creator}}.</p>
+        <p class="recipe-text bottom-offset-xs">Created by {{recipe.creator}} and viewed {{recipe.views}} times.</p>
         <textarea class="recipe-text add-form col-12" rows="3">{{recipe.description}}</textarea>
         <div class="row">
             <div class="col-4">
@@ -19,6 +18,9 @@
             <div class="col-8">
                 <textarea class="recipe-text add-form recipe-page w-100" rows="16">{{recipe.instructions}}</textarea>
             </div>
+        </div>
+        <div class="card-footer">
+            <a href="{{ last_page }}" class="btn btn-info brand-text btn-font-size">BACK</a>
         </div>
     </div>
 </div>

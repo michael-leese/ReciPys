@@ -125,7 +125,7 @@ def recipys():
 #get one recipe
 @app.route('/recipe/<recipe_id>')
 def recipe(recipe_id):
-   
+    last_page = request.referrer
     recipe_id = recipe_id
 
     # get all recipes
@@ -136,7 +136,7 @@ def recipe(recipe_id):
         {'$inc': {'views': 1}}
     )
     recipe = recipes.find_one({'_id': ObjectId(recipe_id)})
-    return render_template("recipe.html", recipe=recipe, title="ReciPy")
+    return render_template("recipe.html", recipe=recipe, title="ReciPy", last_page=last_page)
 
 #add recipy page
 @app.route('/add_recipy', methods=['GET', 'POST'])
