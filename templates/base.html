@@ -30,19 +30,32 @@
         <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarResponsive">
           <ul class="navbar-nav ml-auto flex-nowrap">
             <li class="nav-item {% block nav_index %}{% endblock %}"><a class="nav-link brand-font"
-                href="{{ url_for('index') }}">Home</a></li>
+                href="{{ url_for('index') }}">Home</a>
+            </li>
+            {% if session['logged_in'] == True %}
             <li class="nav-item {% block nav_login %}{% endblock %}"><a class="nav-link brand-font"
-                href="{{ url_for('login') }}">Login</a></li>
-            <li class="nav-item"><a class="nav-link brand-font"
-                href="{{ url_for('logout') }}">Log Out</a></li>
+                href="{{ url_for('login') }}">Login</a>
+            </li>
+            {% endif %}
+            {% if session['logged_in'] == False %}
+            <li class="nav-item">
+              <a class="nav-link brand-font" href="{{ url_for('logout') }}">Log Out</a>
+            </li>
+            {% endif %}
             <li class="nav-item {% block nav_register %}{% endblock %}"><a class="nav-link brand-font"
-                href="{{ url_for('register') }}">Register</a></li>
+                href="{{ url_for('register') }}">Register</a>
+            </li>
             <li class="nav-item {% block nav_recipys %}{% endblock %}"><a class="nav-link brand-font"
-                href="{{ url_for('recipys') }}">ReciPys</a></li>
+                href="{{ url_for('recipys') }}">ReciPys</a>
+            </li>
+            {% if session['logged_in'] == True %}
             <li class="nav-item {% block nav_myrecipys %}{% endblock %}"><a class="nav-link brand-font"
-                href="{{ url_for('my_recipys') }}">My ReciPys</a></li>
+                href="{{ url_for('my_recipys') }}">My ReciPys</a>
+            </li>
             <li class="nav-item {% block nav_add_recipy %}{% endblock %}"><a class="nav-link brand-font"
-                href="{{ url_for('add_recipy') }}">Add ReciPy</a></li>
+                href="{{ url_for('add_recipy') }}">Add ReciPy</a>
+            </li>
+            {% endif %}
           </ul>
         </div>
       </nav>
