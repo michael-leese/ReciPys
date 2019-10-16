@@ -32,12 +32,12 @@
             <li class="nav-item {% block nav_index %}{% endblock %}"><a class="nav-link brand-font"
                 href="{{ url_for('index') }}">Home</a>
             </li>
-            {% if session['logged_in'] == True %}
+            {% if session['logged_in'] == False %}
             <li class="nav-item {% block nav_login %}{% endblock %}"><a class="nav-link brand-font"
                 href="{{ url_for('login') }}">Login</a>
             </li>
             {% endif %}
-            {% if session['logged_in'] == False %}
+            {% if session['logged_in'] == True %}
             <li class="nav-item">
               <a class="nav-link brand-font" href="{{ url_for('logout') }}">Log Out</a>
             </li>

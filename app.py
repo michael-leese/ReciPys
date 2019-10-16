@@ -24,6 +24,7 @@ mongo = PyMongo(app)
 #retrieve home page and return top 4 viewed recipes
 @app.route('/index')
 def index():
+    session['logged_in'] = False
     most_viewed = mongo.db.recipes.find().sort([('views', -1)]).limit(4)
     return render_template("index.html", title="Home", recipes=most_viewed)
 
