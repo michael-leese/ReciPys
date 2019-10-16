@@ -2,18 +2,20 @@
 import os
 import re
 import bcrypt
-from webconfig import MongoDBConfig
-from flask import Flask, render_template, redirect, request, url_for
+from webconfig import MongoDBConfig, Keys
+from flask import Flask, render_template, redirect, request, url_for, session
 from bson.objectid import ObjectId
 from flask_pymongo import PyMongo
-from forms import Add_Recipe, Registration
+from forms import Add_Recipe, Registration, Login
 
 app = Flask(__name__)
 
 Config = MongoDBConfig()
+Keys =Keys()
 #setup Mongo
 app.config["MONGO_DBNAME"] = 'myRecipeDB'
 app.config["MONGO_URI"] = Config.PWconfig
+app.config['SECRET_KEY'] = Keys.SECRET_KEY
 
 mongo = PyMongo(app)
 
@@ -48,10 +50,51 @@ def register():
                           'lastname': request.form['lastname'],
                           'email': request.form['email'],
                           'dob': request.form['dob']})
-            return redirect(url_for('index'))
+            #set up a session for the new user
+            session['username'] = user_name
+            session['logged_in'] = True
+            return redirect(url_for('welcome_user'))
         error_message = "That Username is already taken. Please try again."
         return render_template("error.html", title="ERROR", error=error_message, last_page='../register')
     return render_template("register.html", form=form, title="Register")
+
+#retrieve welcome_user page for first timers
+@app.route('/welcome_user')
+def welcome_user():
+    #pick the username up from the session they have
+    user = session['username']
+    return render_template("first_login_page.html", title="Welcome", user=user)
+
+#retrieve login page
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    #
+    if session.get('logged_in'):
+        if session['logged_in'] is True:
+            return redirect(url_for('index', title="Signed In"))
+
+    form = Login(request.form, csrf_enabled=False)
+
+    if form.validate_on_submit():
+        # get all users
+        users = mongo.db.users
+        # try and get one with same name as entered
+        db_user = users.find_one({'username': request.form['username']})
+        
+        if db_user:
+            #set up the salt_password
+            salt_password = request.form['password'].encode('utf-8')
+            #get the value of input password
+            input_password = bcrypt.hashpw(salt_password, db_user['password'])
+            # check password using hashing
+            if input_password == db_user['password']:
+                session['username'] = request.form['username']
+                session['logged_in'] = True
+                # successful redirect to home logged in
+                return redirect(url_for('index', title="Signed In", form=form))
+            error_message = "Username/Password Incorrect!"
+            return render_template("error.html", title="ERROR", error=error_message, last_page='../login')
+    return render_template("login.html", title="Login", form=form)
 
 #retrieve user page
 @app.route('/my_recipys')

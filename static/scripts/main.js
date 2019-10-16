@@ -24,4 +24,9 @@ $(document).ready(function(){
     $("#dob").attr("placeholder", "Enter dd/mm/yyyy...");
     $("#email").attr("placeholder", "Enter your email...");
 
+    //login form
+    $(".log-form > input").addClass("textarea-form");
+    $(".log-form > label").addClass("strong");
+    $("#username").attr("placeholder", "Enter your Username...");
+    $("#password").attr("placeholder", "Enter your Password...");
 });

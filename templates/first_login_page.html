@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block nav_myrecipys %}active{% endblock %}
+{% block content %}
+<div class="welcome-header top-offset-sm">
+    <div class="index-message">
+        <h2 class="brand-text top-offset">Welcome {{ user }} to your new Cookopedia of ReciPys's</h2>
+        <p class="brand-text">Different day, different meal!</p>
+    </div>
+    <div class="w-33"></div>
+    <form class="input-group search-field-welcome" action="{{ url_for('search_recipes') }}">
+        <input class="form-control" type="text" name="chosenWord" />
+        <div class="input-group-append">
+            <button class="btn btn-info brand-text" type="submit">Search ReciPys</button>
+        </div>
+    </form>
+</div>
+<div class="card-style">
+    <div>
+        <p class="recipe-text top-offset-sm"><strong>In future you can view your own recipe collection here.
+            </strong>><br />
+            ReciPys is the place where you can store all your favourite recipes.<br />
+            Search through our full ReciPy's collection for inspiration,<br />
+            Or simply look through your own Recipy's for that favourite dish.<br />
+            <br />
+            Look through our collection in the search bar above for inspiration.
+            <br />
+            Thank you for signing up to ReciPy's.
+        </p>
+    </div>
+</div>
+{% endblock %}

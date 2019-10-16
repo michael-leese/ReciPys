@@ -113,3 +113,16 @@
     display: flex;
     padding: 10%;
   }
+
+  .welcome-header{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .search-field-welcome {
+    height: fit-content;
+    width: 50%;
+  }
