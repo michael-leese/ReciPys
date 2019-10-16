@@ -3,7 +3,7 @@
 {% block content %}
  <h2 class="brand-text top-offset">All your favourites...</h2>
     <div class="row text-center top-offset-sm">
-    {% for recipe in myrecipes %}
+    {% for recipe in my_recipys %}
         <div class="col-lg-3 col-md-4 col-sm-12 mb-2">
           <div class="card card-style">
             <img class="card-img-top" src="{{ recipe.imageLink }}" alt="picture of {{ recipe.title }} served">

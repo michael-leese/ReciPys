@@ -5,7 +5,6 @@ from wtforms.validators import DataRequired, Length, EqualTo, Email, Regexp
 from webconfig import PWConfig
 
 class Add_Recipe(FlaskForm):  
-    creator = StringField('Creator', validators=[DataRequired()])
     title = StringField('Title', validators=[DataRequired()])
     description = TextAreaField('Description', validators=[DataRequired()])
     ingredients = TextAreaField('Ingredients', validators=[DataRequired()])

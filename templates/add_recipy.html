@@ -7,13 +7,6 @@
     <form class="card-style col-12" action="" method="post" enctype="multipart/form-data">
         {{ form.csrf_token }}
         <div class="col-12 grouping-div-form">
-            <p class="recipe-text col-5 add-form">
-                {{ form.creator.label }}<br>
-                {{ form.creator }}<br>
-                {%  for error in form.creator.errors %}
-                <span class="warning-text">{{ error }}</span>
-                {% endfor %}
-            </p>
             <p class="recipe-text offset-2 col-5 add-form">
                 {{ form.title.label }}<br>
                 {{ form.title }}<br>

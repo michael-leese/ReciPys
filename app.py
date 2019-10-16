@@ -36,7 +36,7 @@ def register():
         users = mongo.db.users
         # see if we already have the entered username
         user_name = request.form['username']
-    #using regular expression setting option for any case
+        #using regular expression setting option for any case
         user_check = {'$regex': re.compile('\W*({})\W*'.format(user_name)), '$options': 'i'}
         user_check = users.find_one({'username': request.form['username']})
         if user_check is None:
@@ -105,7 +105,15 @@ def logout():
 #retrieve user page
 @app.route('/my_recipys')
 def my_recipys():
-    return render_template("myrecipys.html", users=mongo.db.users.find(), title="User")
+    # get all users
+    recipes = mongo.db.recipes
+    #get logged in username
+    user = session['username']
+    #using regular expression setting option for any case
+    creator = {'$regex': re.compile('\W*({})\W*'.format(user)), '$options': 'i'}
+    #find there recipys on db
+    my_recipys = recipes.find({'$or': [{'creator': creator}]})
+    return render_template("myrecipys.html", my_recipys=my_recipys, title="User")
 
 #retrieve recipy page
 @app.route('/recipys')
@@ -121,7 +129,7 @@ def add_recipy():
         recipes_db = mongo.db.recipes
         # add new recipe
         recipes_db.insert_one({
-            'creator': request.form['creator'],
+            'creator': session['username'],
             'title': request.form['title'],
             'description': request.form['description'],
             'ingredients': request.form['ingredients'],
