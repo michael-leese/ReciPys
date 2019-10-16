@@ -6,14 +6,14 @@
     {% for recipe in my_recipys %}
         <div class="col-lg-3 col-md-4 col-sm-12 mb-2">
           <div class="card card-style">
-            <img class="card-img-top" src="{{ recipe.imageLink }}" alt="picture of {{ recipe.title }} served">
+            <img class="card-img-top" src="{{recipe.imageLink}}" alt="picture of {{recipe.title}} served">
             <div class="card-body">
               <h3 class="card-title recipe-text">{{ recipe.title }}</h3>
               <p class="card-text recipe-text">{{ recipe.description }}</p>
               <p class="card-text creator-name-font">Created by {{ recipe.creator }}</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-info brand-text btn-font-size">VIEW</a>
+              <a href="{{url_for('recipe', recipe_id=recipe._id)}}" class="btn btn-info brand-text btn-font-size">VIEW</a>
             </div>
           </div>
         </div>

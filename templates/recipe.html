@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row text-center bottom-offset-sm align-items-end">
+    <h2 class="brand-text top-offset-xs bottom-offset-xs">{{recipe.title}}</h2>
+    <div class="card-style col-12">
+        <div class="row justify-content-center">
+            <div class="col-lg-3 col-md-4 col-sm-12 mb-2">
+                <img class="card-img-top" src="{{recipe.imageLink}}" alt="picture of {{recipe.title}} served">
+            </div>
+        </div>
+        <p class="recipe-text bottom-offset-xs">Viewed {{recipe.views}} times.</p>
+        <textarea class="recipe-text add-form col-12" rows="3">{{recipe.description}}</textarea>
+        <div class="row">
+            <div class="col-4">
+                <textarea class="recipe-text add-form w-100" rows="16">{{recipe.ingredients}}</textarea>
+            </div>
+            <div class="col-8">
+                <textarea class="recipe-text add-form recipe-page w-100" rows="16">{{recipe.instructions}}</textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

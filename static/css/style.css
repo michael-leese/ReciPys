@@ -126,3 +126,7 @@
     height: fit-content;
     width: 50%;
   }
+
+  .recipe-page{
+    white-space: pre-wrap;
+  }

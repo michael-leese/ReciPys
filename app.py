@@ -105,7 +105,7 @@ def logout():
 #retrieve user page
 @app.route('/my_recipys')
 def my_recipys():
-    # get all users
+    # get all recipes
     recipes = mongo.db.recipes
     #get logged in username
     user = session['username']
@@ -118,7 +118,24 @@ def my_recipys():
 #retrieve recipy page
 @app.route('/recipys')
 def recipys():
+    #get all recipes
     return render_template("recipys.html", recipes=mongo.db.recipes.find(), title="Larder")
+
+#get one recipe
+@app.route('/recipe/<recipe_id>')
+def recipe(recipe_id):
+   
+    recipe_id = recipe_id
+
+    # get all recipes
+    recipes = mongo.db.recipes
+    
+    recipes.find_one_and_update(
+        {'_id': ObjectId(recipe_id)},
+        {'$inc': {'views': 1}}
+    )
+    recipe = recipes.find_one({'_id': ObjectId(recipe_id)})
+    return render_template("recipe.html", recipe=recipe, title="ReciPy")
 
 #add recipy page
 @app.route('/add_recipy', methods=['GET', 'POST'])
