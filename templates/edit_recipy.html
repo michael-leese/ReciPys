@@ -58,8 +58,11 @@
             </p>
         </div>
         <div class="col-12 justify-content-center">
-            <div class="row justify-content-center">
-                <p><a href="{{ last_page }}"class="btn btn-info brand-text btn-font-size">CANCEL</a>&nbsp&nbsp{{ form.submit() }}</p>
+            <div class="col-12 justify-content-center">
+                <p>
+                    <a href="{{ last_page }}" class="btn btn-info brand-text btn-font-size">CANCEL</a>&nbsp&nbsp
+                    <span>{{ form.submit }}</span>
+                </p>
             </div>
         </div>
     </form>

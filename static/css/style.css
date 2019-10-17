@@ -146,3 +146,8 @@
   .recipe-page{
     white-space: pre-wrap;
   }
+
+  .plates-image{
+    width: 100%;
+    margin-left: 5%;
+  }    
