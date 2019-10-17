@@ -6,7 +6,7 @@ from webconfig import MongoDBConfig, Keys
 from flask import Flask, render_template, redirect, request, url_for, session
 from bson.objectid import ObjectId
 from flask_pymongo import PyMongo
-from forms import Add_Recipe, Registration, Login
+from forms import Add_Recipe, Registration, Login, Edit_Recipe
 
 app = Flask(__name__)
 
@@ -24,7 +24,11 @@ mongo = PyMongo(app)
 #retrieve home page and return top 4 viewed recipes
 @app.route('/index')
 def index():
-    session['logged_in'] = False
+    if 'username' in session:
+        session['logged_in'] = True
+        #search the database for top 4 recipys
+        most_viewed = mongo.db.recipes.find().sort([('views', -1)]).limit(4)
+        return render_template("index.html", title="Home", recipes=most_viewed)
     most_viewed = mongo.db.recipes.find().sort([('views', -1)]).limit(4)
     return render_template("index.html", title="Home", recipes=most_viewed)
 
@@ -80,8 +84,7 @@ def login():
         # get all users
         users = mongo.db.users
         # try and get one with same name as entered
-        db_user = users.find_one({'username': request.form['username']})
-        
+        db_user = users.find_one({'username': request.form['username']})     
         if db_user:
             #set up the salt_password
             salt_password = request.form['password'].encode('utf-8')
@@ -106,15 +109,18 @@ def logout():
 #retrieve user page
 @app.route('/my_recipys')
 def my_recipys():
+    last_page = request.referrer
     # get all recipes
-    recipes = mongo.db.recipes
-    #get logged in username
-    user = session['username']
-    #using regular expression setting option for any case
-    creator = {'$regex': re.compile('\W*({})\W*'.format(user)), '$options': 'i'}
-    #find there recipys on db
-    my_recipys = recipes.find({'$or': [{'creator': creator}]})
-    return render_template("myrecipys.html", my_recipys=my_recipys, title="User")
+    if 'username' in session:
+        recipes = mongo.db.recipes
+        #get logged in username
+        user = session['username']
+        #using regular expression setting option for any case
+        creator = {'$regex': re.compile('\W*({})\W*'.format(user)), '$options': 'i'}
+        #find there recipys on db
+        my_recipys = recipes.find({'$or': [{'creator': creator}]})
+        return render_template("myrecipys.html", my_recipys=my_recipys, last_page=last_page, title="Cookopedia")
+    return render_template("myrecipys.html", last_page=last_page, title="Cookopedia")
 
 #retrieve recipy page
 @app.route('/recipys')
@@ -127,10 +133,8 @@ def recipys():
 def recipe(recipe_id):
     last_page = request.referrer
     recipe_id = recipe_id
-
     # get all recipes
-    recipes = mongo.db.recipes
-    
+    recipes = mongo.db.recipes   
     recipes.find_one_and_update(
         {'_id': ObjectId(recipe_id)},
         {'$inc': {'views': 1}}
@@ -154,10 +158,57 @@ def add_recipy():
             'instructions': request.form['instructions'],
             'tags': request.form['tags'],
             'imageLink': request.form['imageLink'],
-            'views': '1'
+            'views': 1
             })
         return redirect(url_for('index', title='SAVED!'))
     return render_template('add_recipy.html', form=form, title='Add ReciPy')
+
+#edit recipy page
+@app.route('/edit_recipy/<recipe_id>', methods=['GET', 'POST'])
+def edit_recipy(recipe_id):
+    last_page = request.referrer
+    #logged in users can edit their own recipys
+    recipe = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
+    if request.method == 'GET':
+        form = Edit_Recipe(data=recipe)
+        return render_template('edit_recipy.html', recipe=recipe, form=form, last_page=last_page, title="Edit ReciPy")
+    form = Edit_Recipe(request.form)
+    if form.validate_on_submit():
+        recipes = mongo.db.recipes
+        recipes.update_one({
+            '_id': ObjectId(recipe_id),
+        }, {
+            '$set': {
+                'title': request.form['title'],
+                'description': request.form['description'],
+                'ingredients': request.form['ingredients'],
+                'instructions': request.form['instructions'],
+                'tags': request.form['tags'],
+                'imageLink': request.form['imageLink'],
+            }
+        })
+        return redirect(url_for('my_recipys', title="SAVED!"))
+    return render_template('edit_recipy.html', recipe=recipe, form=form, last_page=last_page, title="Edit ReciPy")
+
+
+
+#confirm delete recipy page
+@app.route('/delete_confirmation/<recipe_id>')
+def delete_confirmation(recipe_id):
+    last_page = request.referrer
+    #logged in users can edit their own recipys
+    recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+    return render_template('delete_recipy.html', title="CONFIRM!", recipe=recipe, last_page=last_page)
+ 
+#delete and return to my recipy page
+@app.route('/delete/<recipe_id>')
+def delete(recipe_id):
+    #get the recipes
+    recipes = mongo.db.recipes
+    recipes.delete_one({
+        '_id': ObjectId(recipe_id),
+    })
+    return redirect(url_for('my_recipys', title="DELETED!"))  
 
 #search for recipes from home screen
 @app.route('/search_recipes')

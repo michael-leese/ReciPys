@@ -58,6 +58,22 @@
     vertical-align: middle;
   }
 
+  #delete-btn {
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-family: 'Mansalva', sans-serif;
+    color: #ffffff;
+    background-color: #f30606;
+    border-color: #f30606;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    line-height: 1.5;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+  }
+
   .brand-backdrop {
     background-image: url("../images/backgroundimage.jpg");
     background-size: cover;

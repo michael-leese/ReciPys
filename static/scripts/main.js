@@ -29,4 +29,5 @@ $(document).ready(function(){
     $(".log-form > label").addClass("strong");
     $("#username").attr("placeholder", "Enter your Username...");
     $("#password").attr("placeholder", "Enter your Password...");
+
 });

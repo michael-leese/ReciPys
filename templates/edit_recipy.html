@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row text-center bottom-offset-sm align-items-end">
+    <h2 class="brand-text top-offset-xs bottom-offset-xs">Edit ReciPy...&nbsp</h2>
+    <p class="brand-text bottom-offset-xs">Update details below</p>
+    <form class="card-style col-12" action="" method="post" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <div class="col-12 grouping-div-form">
+            <p class="recipe-text offset-2 col-5 add-form">
+                {{ form.title.label }}<br>
+                {{ form.title }}<br>
+                {%  for error in form.title.errors %}
+                <span class="warning-text">{{ error }}</span>
+                {% endfor %}
+            </p>
+        </div>
+        <p class="recipe-text add-form">
+            {{ form.description.label }}<br>
+            {{ form.description(rows="3") }}<br>
+            {%  for error in form.description.errors %}
+            <span class="warning-text">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <div class="row">
+            <div class="col-4">
+                <p class="recipe-text add-form">
+                    {{ form.ingredients.label }}<br>
+                    {{ form.ingredients(rows="16") }}
+                    {%  for error in form.ingredients.errors %}
+                    <span class="warning-text">{{ error }}</span>
+                    {% endfor %}
+                </p>
+            </div>
+            <div class="col-8">
+                <p class="recipe-text add-form">
+                    {{ form.instructions.label }}<br>
+                    {{ form.instructions(rows="16") }}
+                    {%  for error in form.instructions.errors %}
+                    <span class="warning-text">{{ error }}</span>
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+        <div class="col-12">
+            <p class="recipe-text add-form">
+                {{ form.tags.label }}<br>
+                {{ form.tags }}<br>
+                {%  for error in form.tags.errors %}
+                <span class="warning-text">{{ error }}</span>
+                {% endfor %}
+            </p>
+            <p class="recipe-text add-form">
+                {{ form.imageLink.label }}<br>
+                {{ form.imageLink }}<br>
+                {%  for error in form.imageLink.errors %}
+                <span class="warning-text">{{ error }}</span>
+                {% endfor %}
+            </p>
+        </div>
+        <div class="col-12 justify-content-center">
+            <div class="row justify-content-center">
+                <p><a href="{{ last_page }}"class="btn btn-info brand-text btn-font-size">CANCEL</a>&nbsp&nbsp{{ form.submit() }}</p>
+            </div>
+        </div>
+    </form>
+</div>
+{%  endblock %}

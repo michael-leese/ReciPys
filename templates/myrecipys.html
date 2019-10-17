@@ -1,22 +1,49 @@
 {% extends 'base.html' %}
 {% block nav_myrecipys %}active{% endblock %}
 {% block content %}
- <h2 class="brand-text top-offset">All your favourites...</h2>
-    <div class="row text-center top-offset-sm">
-    {% for recipe in my_recipys %}
-        <div class="col-lg-3 col-md-4 col-sm-12 mb-2">
-          <div class="card card-style">
-            <img class="card-img-top" src="{{recipe.imageLink}}" alt="picture of {{recipe.title}} served">
-            <div class="card-body">
-              <h3 class="card-title recipe-text">{{ recipe.title }}</h3>
-              <p class="card-text recipe-text">{{ recipe.description }}</p>
-              <p class="card-text creator-name-font">Created by {{ recipe.creator }}</p>
-            </div>
-            <div class="card-footer">
-              <a href="{{url_for('recipe', recipe_id=recipe._id)}}" class="btn btn-info brand-text btn-font-size">VIEW</a>
-            </div>
-          </div>
-        </div>
-    {% endfor %}
+{% if 'username' in session  %}
+<h2 class="brand-text top-offset">All your favourites...</h2>
+<div class="row text-center top-offset-sm">
+  {% for recipe in my_recipys %}
+  <div class="col-lg-3 col-md-4 col-sm-12 mb-2">
+    <div class="card card-style">
+      <img class="card-img-top" src="{{recipe.imageLink}}" alt="picture of {{recipe.title}} served">
+      <div class="card-body">
+        <h3 class="card-title recipe-text">{{ recipe.title }}</h3>
+        <p class="card-text recipe-text">{{ recipe.description }}</p>
+        <p class="card-text creator-name-font">Created by {{ recipe.creator }}. Viewed {{recipe.views}} times.</p>
+      </div>
+      <div class="card-footer">
+        <a href="{{url_for('recipe', recipe_id=recipe._id)}}" class="btn btn-info brand-text btn-font-size">VIEW</a>
+      </div>
     </div>
+  </div>
+  {% endfor %}
+</div>
+{%  else %}
+<h2 class="brand-text top-offset text-align-center">Register for your own ReciPy Cookopedia</h2>
+<div class="row text-center top-offset-sm justify-content-center">
+  <div class="card-style">
+    <div>
+      <p class="recipe-text top-offset-sm text-align-center padding-sides">
+        <strong>In you register you can view your own recipe collection here.</strong><br />
+        <br />
+        ReciPys is the place where you can store all your favourite recipes.<br />
+        Search through our full ReciPy's collection for inspiration,<br />
+        create your own recipes and see how many likes your meal's get.<br />
+        <br />
+        <strong>Register and view all our recipes in full and store your own ReciPys!</strong>
+        <br />
+        Thank you!
+      </p>
+      <div class="bottom-offset-sm">
+        <a href="{{ url_for('register') }}" class="btn btn-info brand-text btn-font-size">REGISTER</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row text-center top-offset-sm justify-content-center">
+  <img src="../static/images/plates.jpg" alt="Plates of different ReciPys cooked">
+</div>
+{% endif %}
 {% endblock %}

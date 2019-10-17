@@ -13,6 +13,15 @@ class Add_Recipe(FlaskForm):
     imageLink = StringField('Image URL', validators=[DataRequired()])
     submit = SubmitField('Add ReciPy', id="recipy-btn")
 
+class Edit_Recipe(FlaskForm):
+    title = StringField('Title', validators=[DataRequired()])
+    description = TextAreaField('Description', validators=[DataRequired()])
+    ingredients = TextAreaField('Ingredients', validators=[DataRequired()])
+    instructions = TextAreaField('Instructions', validators=[DataRequired()])
+    tags = StringField('Tags', validators=[DataRequired()])
+    imageLink = StringField('Image URL', validators=[DataRequired()])
+    submit = SubmitField('Edit', id="recipy-btn")
+
 class Registration(FlaskForm):
     nomatch = 'Passwords must match'
     username = StringField('Username', validators=[DataRequired(), Length(min=4, max=20)])

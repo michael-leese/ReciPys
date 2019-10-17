@@ -4,19 +4,25 @@
 <div class="row text-center bottom-offset-sm align-items-end">
     <h2 class="brand-text top-offset-xs bottom-offset-xs">{{recipe.title}}</h2>
     <div class="card-style col-12">
-        <div class="row justify-content-center">
+        <div class="row space-around">
             <div class="col-lg-3 col-md-4 col-sm-12 mb-2">
                 <img class="card-img-top" src="{{recipe.imageLink}}" alt="picture of {{recipe.title}} served">
             </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 mb-2 center-align">
+                <p class="recipe-text bottom-offset-xs">Created by {{recipe.creator}}. Viewed {{recipe.views}} times.</p>
+                {% if session['username'] == recipe.creator %}
+                <a href="{{url_for('edit_recipy', recipe_id=recipe._id)}}" class="btn btn-info brand-text btn-font-size">EDIT</a>
+                <a href="{{url_for('delete_confirmation', recipe_id=recipe._id)}}" class="btn btn-danger brand-text btn-font-size">DELETE</a>
+                {% endif %}
+            </div>
         </div>
-        <p class="recipe-text bottom-offset-xs">Created by {{recipe.creator}} and viewed {{recipe.views}} times.</p>
-        <textarea class="recipe-text add-form col-12" rows="3">{{recipe.description}}</textarea>
+        <textarea class="recipe-text add-form col-12 text-align-center" rows="3" readonly>{{recipe.description}}</textarea>
         <div class="row">
             <div class="col-4">
-                <textarea class="recipe-text add-form w-100" rows="16">{{recipe.ingredients}}</textarea>
+                <textarea class="recipe-text add-form w-100" rows="16" readonly>{{recipe.ingredients}}</textarea>
             </div>
             <div class="col-8">
-                <textarea class="recipe-text add-form recipe-page w-100" rows="16">{{recipe.instructions}}</textarea>
+                <textarea class="recipe-text add-form recipe-page w-100" rows="16" readonly>{{recipe.instructions}}</textarea>
             </div>
         </div>
         <div class="card-footer">

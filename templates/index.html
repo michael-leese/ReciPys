@@ -2,41 +2,56 @@
 {% block nav_index %}active{% endblock %}
 {% block content %}
 <div class="index-header top-offset-sm">
-    <div class="index-message">
-        <h1 class="brand-text">Welcome to Recipys</h1>
-        <p class="brand-text">Different day, different meal!</p>
+  <div class="index-message">
+    {% if 'username' not in session %}
+    <h1 class="brand-text">Welcome to Recipys</h1>
+    {% else %}
+    <h1 class="brand-text">Welcome back {{ session['username'] }}</h1>
+    {% endif %}
+    <p class="brand-text">Different day, different meal!</p>
+  </div>
+  <div class="w-33"></div>
+  <form class="input-group search-field" action="{{url_for('search_recipes')}}">
+    <input class="form-control" type="text" name="chosenWord" />
+    <div class="input-group-append">
+      <button class="btn btn-info brand-text" type="submit">Search ReciPys</button>
     </div>
-    <div class="w-33"></div>
-    <form class="input-group search-field" action="{{url_for('search_recipes')}}">
-        <input class="form-control" type="text" name="chosenWord" />
-        <div class="input-group-append">
-            <button class="btn btn-info brand-text" type="submit">Search ReciPys</button>
-        </div>
-    </form>
+  </form>
 </div>
 <div>
-    <p class="brand-text top-offset-sm">ReciPys is the place where you can store all your favourite meals.<br />
-        Search through our full ReciPy's collection for inspiration,<br />
-        Or simply look through your own Recipy's for that favourite dish.
-    </p>
+  {% if 'username' not in session %}
+  <p class="brand-text top-offset-sm">ReciPys is the place where you can store all your favourite meals.<br />
+    Search through our full ReciPy's collection for inspiration,<br />
+    Or simply look through your own Recipy's for that favourite dish.
+  </p>
+  {% else %}
+  <p class="brand-text top-offset-sm">Ready to go Chef!<br />
+    Search through our full ReciPy's collection for inspiration,<br />
+    Or look through your own recipes <a href="{{url_for('my_recipys')}}" class=" brand-text"><u>here</u></a>.
+  </p>
+  {% endif %}
 </div>
 <h6 class="brand-text top-offset-sm"><strong>Our Top 4 ReciPys...</strong></h6>
 <div class="row text-center top-offset-sm">
-        {% for recipe in recipes %}
-            <div class="col-lg-3 col-md-4 col-sm-12 mb-2">
-              <div class="card card-style">
-                <img class="card-img-top" src="{{recipe.imageLink}}" alt="picture of {{recipe.title}} served">
-                <div class="card-body">
-                  <h3 class="card-title recipe-text">{{ recipe.title }}</h3>
-                  <p class="card-text recipe-text">{{ recipe.description }}</p>
-                  <p class="card-text creator-name-font">Created by {{ recipe.creator }}</p>
-                </div>
-                <div class="card-footer">
-                  <a href="{{url_for('recipe', recipe_id=recipe._id)}}" class="btn btn-info brand-text btn-font-size">VIEW</a>
-                </div>
-              </div>
-            </div>
-        {% endfor %}
-        </div>
+  {% for recipe in recipes %}
+  <div class="col-lg-3 col-md-4 col-sm-12 mb-2">
+    <div class="card card-style">
+      <img class="card-img-top" src="{{recipe.imageLink}}" alt="picture of {{recipe.title}} served">
+      <div class="card-body">
+        <h3 class="card-title recipe-text">{{recipe.title}}</h3>
+        <p class="card-text recipe-text">{{recipe.description}}</p>
+        <p class="card-text creator-name-font">Created by {{recipe.creator}}. Viewed {{recipe.views}} times.</p>
+      </div>
+      <div class="card-footer">
+        {% if 'username' in session %}
+        <a href="{{url_for('recipe', recipe_id=recipe._id)}}" class="btn btn-info brand-text btn-font-size">VIEW</a>
+        {% else %}
+        <a href="{{url_for('my_recipys')}}" class="btn btn-info brand-text btn-font-size">VIEW</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 
 {% endblock %}
