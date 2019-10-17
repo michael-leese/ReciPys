@@ -36,4 +36,4 @@ class Registration(FlaskForm):
 class Login(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired(), Regexp(regex=PWConfig.regex, message=PWConfig.PWfailRegexMsg)])
-    submit = SubmitField('Login')
+    submit = SubmitField('Login', id="recipy-btn")
