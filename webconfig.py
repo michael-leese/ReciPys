@@ -1,5 +1,5 @@
 import os
-
+   
 class MongoDBConfig:
     #mongodb credentials
     PWconfig = os.environ.get('MONGO_URI') or 'this-password-is-hidden'
