@@ -11,7 +11,7 @@ from forms import Add_Recipe, Registration, Login, Edit_Recipe
 app = Flask(__name__)
 #get web.config settings
 Config = MongoDBConfig()
-Keys =Keys() 
+Keys = Keys() 
 #setup Mongo
 app.config["MONGO_DBNAME"] = 'myRecipeDB'
 app.config["MONGO_URI"] = Config.PWconfig
