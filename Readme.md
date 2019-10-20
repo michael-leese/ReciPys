@@ -11,3 +11,19 @@ The users can add their own recipe to the database, which will be stored in thei
 
 The deployed website is [ReciPys](https://recipys.herokuapp.com).
 
+## Technologies Used ##
+
+In this project I have used the following:  
+Used | <span style="color:white">Leave Blank</span>       
+---------- | ----------
+Python3 | Jinja Template
+HTML5 | CSS3
+JQuery | MarkDown
+Bash | Ubuntu
+GIT | GitHub
+VS Code | Balsamiq
+Chrome | web-server-for-chrome
+FireFox | Microsoft Edge
+Safari | Android Device
+IoS Device | Windows LapTop
+Chrome devTools inc Remote Device Debug | mybrowseraddon.com useragent-switcher
