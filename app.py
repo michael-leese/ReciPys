@@ -13,8 +13,8 @@ app = Flask(__name__)
 Config = MongoDBConfig()
 Keys = Keys() 
 #setup Mongo
-app.config["MONGO_DBNAME"] = 'myRecipeDB'
-app.config["MONGO_URI"] = Config.PWconfig
+app.config['MONGO_DBNAME'] = 'myRecipeDB'
+app.config['MONGO_URI'] = Config.PWconfig
 app.config['SECRET_KEY'] = Keys.SECRET_KEY
 
 mongo = PyMongo(app)
@@ -275,6 +275,5 @@ def search_recipes():
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
-        port=int(os.environ.get('PORT')),
-        debug=false)
+        port=int(os.environ.get('PORT')))
         # Successfully connected to heroku
