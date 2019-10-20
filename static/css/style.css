@@ -1,3 +1,72 @@
+  /**************************BASE************/
+  /*Recipe Result Card*/
+  .card-style {
+    background-color: #ffffff82;
+    background-clip: border-box;
+    border: 1px solid hsla(0, 0%, 100%, 0.51);
+    border-radius: .25rem;
+    height: 100%;
+  }
+
+  .card-title {
+    margin-bottom: 0;
+  }
+
+  .card-body {
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .card-footer {
+    padding: 0.25rem;
+  }
+
+  .page-footer {
+    justify-content: center;
+  }
+
+  /**************************INDEX***********/
+  .index-header{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .index-message {
+    display: block;
+  }
+
+  .welcome-header{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  /*Search field*/
+  .search-field {
+    height: fit-content;
+    width: 40%;
+  }
+
+  .search-field-welcome {
+    height: fit-content;
+    width: 50%;
+  }
+
+  /**********************************Branding and Fonts**********/
+  /*Images*/
+  .brand-backdrop {
+    background-image: url("../images/backgroundimage.jpg");
+    background-size: cover;
+  }
+  
+  .plates-image{
+    width: 100%;
+    margin-left: 5%;
+    border-radius: .5rem;
+  } 
+  /*FONTS*/
   .brand-font {
     font-family: 'Mansalva', sans-serif;
   }
@@ -21,11 +90,16 @@
   .creator-name-font {
     font-size: 0.7em;
   }
-
+/*******************************FORM*************/
   .grouping-div-form {
     display: flex;
   }
 
+  .form-title {
+    margin-bottom: 0;
+    color: #242f34;
+  }
+  
   .textarea-form {
     width: 100%;
   }
@@ -41,7 +115,7 @@
     font-size: 0.8em;
     font-style: italic;
   }
-
+/********************************************Buttons******/
   #recipy-btn {
     border: 1px solid transparent;
     padding: .375rem .75rem;
@@ -74,81 +148,16 @@
     vertical-align: middle;
   }
 
-  .brand-backdrop {
-    background-image: url("../images/backgroundimage.jpg");
-    background-size: cover;
+  /**************************RECIPE***********/
+  .recipe-page{
+    white-space: pre-wrap;
   }
 
-  .index-header{
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
-
-  .index-message {
-    display: block;
-  }
-
-  .search-field {
-    height: fit-content;
-    width: 40%;
-  }
-
-  .card-style {
-    background-color: #ffffff82;
-    background-clip: border-box;
-    border: 1px solid hsla(0, 0%, 100%, 0.51);
-    border-radius: .25rem;
-    height: 100%;
-  }
-
-  .card-title {
-    margin-bottom: 0;
-  }
-
-  .card-body {
-    padding: 0.25rem;
-    line-height: 1;
-  }
-
-  .card-footer {
-    padding: 0.25rem;
-  }
-
-  .form-title {
-    margin-bottom: 0;
-    color: #242f34;
-  }
-
-  .page-footer {
-    justify-content: center;
-  }
-
+  /**************************ERROR************/
   .error-container{
     justify-content: center;
     display: flex;
     padding: 10%;
   }
-
-  .welcome-header{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .search-field-welcome {
-    height: fit-content;
-    width: 50%;
-  }
-
-  .recipe-page{
-    white-space: pre-wrap;
-  }
-
-  .plates-image{
-    width: 100%;
-    margin-left: 5%;
-    border-radius: .5rem;
-  }    
+  
+   

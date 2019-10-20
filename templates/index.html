@@ -1,22 +1,21 @@
 {% extends 'base.html' %}
 {% block nav_index %}active{% endblock %}
 {% block content %}
-<div class="index-header top-offset-sm">
-  <div class="index-message">
+<div class="row index-header top-offset-sm">
+  <div class="col-lg-6 col-12 index-header index-message">
     {% if 'username' not in session %}
     <h1 class="brand-text">Welcome to ReciPys</h1>
     {% else %}
     <h1 class="brand-text">Welcome back {{ session['username'] }}</h1>
     {% endif %}
-    <p class="brand-text">Different day, different meal!</p>
+    <h5 class="brand-text">Different day, different meal!</h5>
   </div>
-  <div class="w-33"></div>
-  <form class="input-group search-field" action="{{url_for('search_recipes')}}">
-    <input class="form-control" type="text" name="chosenWord" />
-    <div class="input-group-append">
-      <button class="btn btn-info brand-text" type="submit">Search ReciPys</button>
-    </div>
-  </form>
+    <form class="col-lg-6 col-md-8 col-12 input-group search-field" action="{{url_for('search_recipes')}}">
+      <input class="form-control" type="text" name="chosenWord" />
+      <div class="input-group-append">
+        <button class="btn btn-info brand-text" type="submit">Search</button>
+      </div>
+    </form>
 </div>
 <div>
   {% if 'username' not in session %}
@@ -25,7 +24,7 @@
     Or simply look through your own Recipy's for that favourite dish.
   </p>
   {% else %}
-  <p class="brand-text top-offset-sm">Ready to go Chef!<br />
+  <p class="brand-text top-offset-sm"><strong>Ready to go Chef!</strong><br />
     Search through our full ReciPy's collection for inspiration,<br />
     Or look through your own recipes <a href="{{url_for('my_recipys')}}" class=" brand-text"><u>here</u></a>.
   </p>
