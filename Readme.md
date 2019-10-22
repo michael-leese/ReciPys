@@ -72,11 +72,11 @@ A list of the commands that I had used in the Ubuntu terminal is as follows:
     * sudo pip3 install bcrypt
     * pip3 freeze --local
     * pip3 freeze --local > requirements.txt
-    * python3 -m flask run
+    * python3 -m flask run (used to run the code locally)
 * Heroku
     * sudo curl https://cli-assets.heroku.com/install.sh | sh
     * heroku --version
-    * heroku login -i
+    * heroku login -i (used to log in to heroku)
     * heroku login
     * sudo heroku git:remote -a recipys
     * git commit -am "heroku setup"
