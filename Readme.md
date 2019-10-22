@@ -51,7 +51,7 @@ MarkDown was used to create the Readme.md file you are reading now.
 
 ## Deployment ##
 
-I have hosted the site on Heroku, and git committed my code here to provide the server with my code, also I have git committed to a repository of the code on [GitHub pages](https://github.com/michael-leese/ReciPys), which has been deployed directly from the Master Branch, using the app.py in my Procfile as the first file to run, all access to MongoDB database is handled in this file as well as connection to the app and templates.
+I have hosted the site on Heroku, and git committed my code here to provide the server with my code, also I have git committed to a repository of the code on [GitHub pages](https://github.com/michael-leese/ReciPys), which has been deployed directly from the Master Branch, using the app.py in my [Procfile](https://github.com/michael-leese/ReciPys/blob/master/Procfile) as the first file to run, all access to MongoDB database is handled in this file as well as connection to the app and templates.
 
 Initially the database was populated with some test user and test recipe records. Upon the site reaching the point that data could be added through the front end all other DB data was added through the relevant forms on the site.
 
