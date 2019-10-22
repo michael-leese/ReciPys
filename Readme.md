@@ -32,12 +32,12 @@ In the future, I would like to add the ability of searching your own recipes as 
 
 In this project I have used the following technologies in order to create the website, I have used HTML5 with Jinja Templating
 
-Python3 was the base language used in order to create the app, provide logic to the buttons and links as well as connection to MongoDB, using PyMongo, as well as to Heroku using Heroku.
+Python3 was the base language used in order to create the app, provide logic to the buttons and links as well as connection to [MongoDB](https://www.mongodb.com/), using PyMongo, as well as to [Heroku](https://www.heroku.com/home) using [Heroku](https://pypi.org/project/heroku/).
 
-I utilised Flask, WTFroms, DNSPython, PyMongo and Bcrypt for the majority of the functionality, however more were used and these have been recorder in the [requirements.txt](https://github.com/michael-leese/ReciPys/blob/master/requirements.txt) file with a full list of depenedencies that were utilised are recorded. Heroku utilises this file in order to install them locally on the server.
+I utilised [Flask](http://flask.palletsprojects.com/en/1.1.x/), [WTFroms](https://wtforms.readthedocs.io/en/stable/), [DNSPython](https://pypi.org/project/dnspython/), [PyMongo](https://pypi.org/project/pymongo/) and [Bcrypt](https://pypi.org/project/bcrypt/) for the majority of the functionality, however more were used and these have been recorder in the [requirements.txt](https://github.com/michael-leese/ReciPys/blob/master/requirements.txt) file with a full list of depenedencies that were utilised are recorded. Heroku utilises this file in order to install them locally on the server.
 
-Jinja Template was used in conjunction with HTML5 to provide the dynamically populated structure of the website and was tsyled using CSS3.
-Bootstrap4 was used in order to style and make responsive the front end of the site.
+[Jinja Template](https://jinja.palletsprojects.com/en/2.10.x/) was used in conjunction with HTML5 to provide the dynamically populated structure of the website and was tsyled using CSS3.
+[Bootstrap4](https://getbootstrap.com/docs/4.0/getting-started/introduction/) was used in order to style and make responsive the front end of the site.
 
 JQuery and Javascript in order to style the dynamic elements of the page such as buttons and forms. 
 
@@ -49,24 +49,15 @@ GIT and GitHub were used in order to version my code and store it in a repositor
 
 MarkDown was used to create the Readme.md file you are reading now.
 
-## Testing ##
-
-A thorough [testing process]() was undertaken manually, going through the user stories as well as testing all functionality and logic through the front end. This involved testing while not logged in and paying particular attention to the authorised access and the logic the links and buttons would play given the level of access granted to the site.
-
-Further testing was carried out on the responsivity of the site across different browsers and platforms in order to ensure that the site maintained its stylings. The items that have been tested with are listed below:
-Tested On | <span style="color:white"></span>       
----------- | ----------
-Chrome | web-server-for-chrome
-FireFox | Microsoft Edge
-Safari | Android Device
-IoS Device | Windows LapTop
-Chrome devTools inc Remote Device Debug | mybrowseraddon.com useragent-switcher 
-
 ## Deployment ##
 
 I have hosted the site on Heroku, and git committed my code here, and kept a repository of the code on GitHub pages, which has been deployed directly from the Master Branch, using the app.py in my Procfile as the first file to run, all access to MongoDB database is handled in this file as well as connection to the app and templates.
+
+Initially the database was populated with some test user and test recipe records. Upon the site reaching the point that data could be added through the front end all other DB data was added throught the relevant forms on the site.
+
 If the site is to be updated or added to then further commits will automatically add to this branch and update any file changed/moved/deleted, this will also require committing to Heroku to update the server.
-After first setting up Heroku and MongoDB I then went about setting up my VS Code environment with all the extensions that it required and then connected my environment to Heroku and MongoDB using the Ubuntu terminal with Bash Script.
+After first signing up for Heroku and MongoDB I then went about setting up my VS Code environment with all the extensions that it required and then connected my environment to Heroku and MongoDB using the Ubuntu terminal with Bash Script.
+
 A list of the commands that I had used in the Ubuntu terminal is as follows:
 * VS Code
     * wsl
@@ -94,6 +85,21 @@ A list of the commands that I had used in the Ubuntu terminal is as follows:
     * echo web: python app.py > Procfile
 
 As well as the various GIT commands that we use regualarily in order to commit our code. 
+
+The environament variables on Heroku were used to store the IP, PORT, MONGO_URI and SECRET_KEY, so that they are not visible or accessable to the public or stored in any repositroy. These are accessed via imported classes from the [webconfig.py](https://github.com/michael-leese/ReciPys/blob/master/webconfig.py).
+
+## Testing ##
+
+A thorough [testing process](https://github.com/michael-leese/ReciPys/blob/master/testing/testing.md) was undertaken manually, going through the user stories as well as testing all functionality and logic through the front end. This involved testing while not logged in and paying particular attention to the authorised access and the logic the links and buttons would play given the level of access granted to the site.
+
+Further testing was carried out on the responsivity of the site across different browsers and platforms in order to ensure that the site maintained its stylings. The items that have been tested with are listed below:
+Tested On | <span style="color:white"></span>       
+---------- | ----------
+Chrome | web-server-for-chrome
+FireFox | Microsoft Edge
+Safari | Android Device
+IoS Device | Windows LapTop
+Chrome devTools inc Remote Device Debug | mybrowseraddon.com useragent-switcher 
 
 ## Credits ##
 
