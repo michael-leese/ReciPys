@@ -30,22 +30,28 @@ In the future, I would like to add the ability of searching your own recipes as 
 
 ## Technologies Used ##
 
-In this project I have used the following technologies in order to create the website, I have used HTML5 with Jinja Templating and some JQuery and Javascript in order to style the dynamic elements of the page such as buttons and forms:  
-Used | <span style="color:white"></span>       
----------- | ----------
-Python3 | Jinja Template
-HTML5 | CSS3
-Bootstrap4 | Javascript
-JQuery | MarkDown
-Bash | Ubuntu
-GIT | GitHub
-VS Code | <span style="color:white"></span>
+In this project I have used the following technologies in order to create the website, I have used HTML5 with Jinja Templating
 
-In the [requirements.txt](https://github.com/michael-leese/ReciPys/blob/master/requirements.txt) file a list of depenedencies that were utilised in Python3 are recorded.
+Python3 was the base language used in order to create the app, provide logic to the buttons and links as well as connection to MongoDB, using PyMongo, as well as to Heroku using Heroku.
+
+I utilised Flask, WTFroms, DNSPython, PyMongo and Bcrypt for the majority of the functionality, however more were used and these have been recorder in the [requirements.txt](https://github.com/michael-leese/ReciPys/blob/master/requirements.txt) file with a full list of depenedencies that were utilised are recorded. Heroku utilises this file in order to install them locally on the server.
+
+Jinja Template was used in conjunction with HTML5 to provide the dynamically populated structure of the website and was tsyled using CSS3.
+Bootstrap4 was used in order to style and make responsive the front end of the site.
+
+JQuery and Javascript in order to style the dynamic elements of the page such as buttons and forms. 
+
+In Ubuntu I used Bash Script in order to carry out tasks and perform installs and connections.
+
+GIT and GitHub were used in order to version my code and store it in a repository. GIT was also utilised in order to push the repository upto Heroku for deployment.
+
+[VS Code](https://code.visualstudio.com/) was the environment in which I created my app, I had to install extensions for it in order to provide it with the capability of running and editing my code. These included WSL, Python, HTML, CSS, Javascript, Django HTML and some formatting versions for these languages so that i could beautify my code.
+
+MarkDown was used to create the Readme.md file you are reading now.
 
 ## Testing ##
 
-A thorough testing process was undertaken manually, going through the user stories as well as testing all functionality and logic through the front end. This involved testing while not logged in and paying particular attention to the authorised access and the logic the links and buttons would play given the level of access granted to the site.
+A thorough [testing process]() was undertaken manually, going through the user stories as well as testing all functionality and logic through the front end. This involved testing while not logged in and paying particular attention to the authorised access and the logic the links and buttons would play given the level of access granted to the site.
 
 Further testing was carried out on the responsivity of the site across different browsers and platforms in order to ensure that the site maintained its stylings. The items that have been tested with are listed below:
 Tested On | <span style="color:white"></span>       
