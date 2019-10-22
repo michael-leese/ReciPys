@@ -139,6 +139,8 @@ Further images were incorporated to help style the site.
 
 I got inspiration from [Recipy](https://www.pinterest.co.uk/jamespalmer5/recipy/), although you may think the name is very similar, believe it or not I had already decided that my Website would be Recipe and Python combined to form ReciPys, long before I had come across this site which I though I could make better and provide more features to the user.
 
+I have recieved an example of the code for the site from my Mentor Spencer Barriball and this is can be seen at [here](https://github.com/5pence/recipeGlut). This assited me in working out the logic for my own site as well as providing me with code that I could action and use for my own logic.
+
 I am thankful for the lessons and miniproject that is in the Data Centric Module of the course by [The Code Institute](https://codeinstitute.net/).
 
 ###### This project has been created for educational use ######
