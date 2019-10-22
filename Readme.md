@@ -131,9 +131,9 @@ I have utilised some of the code that was on the Data Centric Mini Project in or
 All recipes that have been used have been collected from the [BBC Good Food](https://www.bbcgoodfood.com) site and the photos used on the recipes have been taken from the specific recipe page.
 Further images were incorporated to help style the site.
 * Images and Fonts    
-       * https://pixabay.com/photos/food-salad-italian-tasty-cooking-2068217/
-       * https://pixabay.com/photos/cook-food-plate-tableware-courts-366875/
-       * https://fonts.google.com/
+    * https://pixabay.com/photos/food-salad-italian-tasty-cooking-2068217/
+    * https://pixabay.com/photos/cook-food-plate-tableware-courts-366875/
+    * https://fonts.google.com/
 
 #### Acknowledgements ####
 
